@@ -5,13 +5,16 @@ function getTime() {
     const date = new Date();
     const minutes = date.getMinutes();
     const hours = date.getHours();
-    const secounds = date.getSeconds();
+    const seconds = date.getSeconds();
 
-    clockTitle.innerText = `${hours}:${minutes}:${secounds}`
+    clockTitle.innerText = `${hours}:${minutes}:${
+        seconds < 10 ? `0${seconds}` : seconds
+    }`;
 }
 
 function init() {
-    getTime()
+    getTime();
+    setInterval(getTime, 1000);
 }
 
 init();
